@@ -1,0 +1,6 @@
+host: https://unsw.militech.top/
+driver: chrome
+users:
+  TestUser:
+  - username: test_user@test.com
+    password: 123456

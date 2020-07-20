@@ -1,0 +1,94 @@
+[
+  {
+    "uri": "features/common/user_portal.feature",
+    "id": "global-agent-hub-user-portal",
+    "keyword": "Feature",
+    "name": "Global Agent Hub User Portal",
+    "description": "",
+    "line": 1,
+    "elements": [
+      {
+        "id": "global-agent-hub-user-portal;",
+        "keyword": "Scenario",
+        "name": "",
+        "description": "",
+        "line": 3,
+        "type": "scenario",
+        "before": [
+          {
+            "match": {
+              "location": "capybara-3.15.0/lib/capybara/cucumber.rb:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18400
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-3.15.0/lib/capybara/cucumber.rb:22"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 46200
+            }
+          },
+          {
+            "match": {
+              "location": "support/hooks.rb:9"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3560401800
+            }
+          }
+        ],
+        "steps": [
+          {
+            "keyword": "Given ",
+            "name": "I login to user portal as \"TestUser\"",
+            "line": 4,
+            "match": {
+              "location": "features/step_definitions/user_portal_steps.rb:1"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4947578400
+            },
+            "after": [
+              {
+                "match": {
+                  "location": "support/hooks.rb:42"
+                },
+                "result": {
+                  "status": "passed",
+                  "duration": 521000
+                }
+              }
+            ]
+          }
+        ],
+        "after": [
+          {
+            "match": {
+              "location": "support/hooks.rb:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1812600
+            }
+          },
+          {
+            "match": {
+              "location": "capybara-3.15.0/lib/capybara/cucumber.rb:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 155619500
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

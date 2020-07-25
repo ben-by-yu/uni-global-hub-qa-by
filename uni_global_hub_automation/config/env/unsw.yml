@@ -1,6 +1,13 @@
-host: https://unsw.militech.top/
+admin_portal_host: https://unsw.militech.top/admin.php/index/login?url=%2Fadmin.php
+agent_hub_host: https://unsw.militech.top/
 driver: chrome
 users:
-  TestUser:
-  - username: test_user@test.com
-    password: 123456
+  AdminUser:
+  - UserName: admin
+    Password: 123456
+  AutomationTester:
+  - Full name: Automation Test
+    Email address: automation_test@lecoov.com
+    Password: automation123
+    Country: Australia
+    Company: AECC Global Sydney

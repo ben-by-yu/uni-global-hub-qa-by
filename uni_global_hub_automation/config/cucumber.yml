@@ -1,4 +1,5 @@
-default: --profile structure --profile pretty --profile junit_report
+#default: --profile structure --profile pretty --profile junit_report
+default: --require support --require features
 ci: --profile html_report --profile structure --profile junit_report --profile json_report
 pretty: --format pretty
 junit_report: --format junit --out=output/junit/

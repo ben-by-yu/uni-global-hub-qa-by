@@ -20,7 +20,7 @@ end
 
 module CustomWorld
   include Logging
-  delegate :test_env, :env_config, :user_config, :deployment, to: Config
+  delegate :test_env, :env_config, :user_config, to: Config
   delegate :deployment, to: :execution_data
   attr_reader :execution_data
 
@@ -32,32 +32,12 @@ module CustomWorld
     current_url.split('#')[0]
   end
 
-  def user_credentials(role)
+  def user_info(role)
     env_config[:users][role].first
-  end
-
-  def generate_deployment_file(deployment_type, location_code= nil)
-    execution_data.deployment.generate(deployment_type, execution_data.client_layer, location_code)
-  end
-
-  def load_deployment_file(deployment_number)
-    execution_data.deployment.load(deployment_number)
   end
 
   def execution_data
     @execution_data ||= ExecutionData.new
-  end
-
-  def pega_api
-    @pega_api ||= PegaApi.new(execution_data)
-  end
-
-  def matrix_runner
-    @matrix_runner ||= MatrixRunner.new
-  end
-
-  def db_queries
-    @db_queries ||= DBQueries.new
   end
 
   def within_visible_frame(&block)

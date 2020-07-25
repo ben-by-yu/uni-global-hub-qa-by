@@ -1,0 +1,8 @@
+**/output/
+*.log
+build/
+.idea/
+*.iml
+*.msg
+.byebug*
+/cucumber/features/test.feature

@@ -1,0 +1,11 @@
+**/output/
+!cucumber/output/.keep
+*.log
+build/
+.idea/
+db_export/data
+*.iml
+db_export/data.zip
+*.msg
+.byebug*
+/cucumber/features/test.feature

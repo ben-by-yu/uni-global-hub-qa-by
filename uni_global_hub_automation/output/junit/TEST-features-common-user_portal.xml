@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite failures="0" errors="0" skipped="0" tests="1" time="8.673329" name="Global Agent Hub User Portal">
-<testcase classname="Global Agent Hub User Portal" name="Unnamed scenario" time="8.673329">
+<testsuite failures="0" errors="0" skipped="0" tests="1" time="21.294438" name="Global Agent Hub User Portal">
+<testcase classname="Global Agent Hub User Portal" name="Unnamed scenario" time="21.294438">
   <system-out>
-    <![CDATA[2020-07-20 22:37:27 WARN Selenium [DEPRECATION] :driver_path is deprecated. Use :service with an instance of Selenium::WebDriver::Service instead.
+    <![CDATA[2020-07-22 10:11:07 WARN Selenium [DEPRECATION] :driver_path is deprecated. Use :service with an instance of Selenium::WebDriver::Service instead.
 ]]>
   </system-out>
   <system-err>

@@ -1,4 +1,5 @@
 require_relative '../helpers/retry_helper'
+require_relative '../models/banner'
 require 'open-uri'
 
 class GenericPage
@@ -6,6 +7,7 @@ class GenericPage
   include Capybara::Node::Matchers
   include RSpec::Matchers
   include RetryHelper
+  include TabBanner
 
   def initialize(world)
     @world = world
@@ -15,21 +17,13 @@ class GenericPage
     @world.send(method_name, *args, &block)
   end
 
-  def expand_all_sections
-    all_expand_ele = page.all('.collapsible.Collapsed')
-    all_expand_ele.each do |expand_ele|
-      scroll_to expand_ele
-      expand_ele.click
-    end
-
-    sleep 0.5
-
-    #required to find all expandable elements second time to expand sub sections under a section
-    all_expand_ele = page.all('.collapsible.Collapsed')
-    all_expand_ele.each do |expand_ele|
-      scroll_to expand_ele
-      expand_ele.click
-    end
+  def login(role)
+    execution_data.user_info = user_info role
+    find("input[placeholder='E-mail']").set execution_data.user_info["Email address"]
+    find("input[placeholder='Password']").set execution_data.user_info["Password"]
+    find("div[class='submit']", :text => "Login").click
+    # click_button 'Login'
+    sleep 3
   end
 
   def click_action_button(button)
@@ -66,16 +60,8 @@ class GenericPage
     file_path
   end
 
-  def get_expected_case_status(case_type, status)
+  def get_expected_banner(tab)
     PegaStatus.module_eval(case_type.camelize).const_get(underscoreize(status).upcase)
-  end
-
-  def get_expected_workbasket(case_type, stage)
-    PegaWorkbaskets.module_eval(case_type.camelize).const_get(underscoreize(stage).upcase)
-  end
-
-  def get_expected_workgroup(case_type, stage)
-    PegaWorkgroups.module_eval(case_type.camelize).const_get(underscoreize(stage).upcase)
   end
 
   def scroll_to(element)

@@ -10,11 +10,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install dependencies
-          command: |
-            gem install bundler -v 2.0.1
-            bundle install
-      - run:
-          name: run automation
-          command: |
-            rake cucumber
+          name: Which bundler?
+          command: bundle -v
+      - ruby/bundle-install

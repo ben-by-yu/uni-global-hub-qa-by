@@ -1,0 +1,10 @@
+version: 2.1
+jobs:
+  build:
+    steps:
+    - run:
+        name: Run Automation
+        command: |
+          gem install bunder -v 2.0.1
+          bundle install
+          rake cucumber

@@ -1,7 +1,7 @@
 module TabBanner
   HOME = "to UNSW Sydney Digital Agent Content Hub"
   FAVOURITE = "My Favourites"
-  PROGRAM_FLYER = "Program Flyers"
+  PROGRAM_FLYERS = "Program Flyers"
   PULL_UP_BANNERS = "Pull Up Banners"
   TEMPLATES = "Templates"
   BRAND_GUIDELINES = "Brand Guidelines"

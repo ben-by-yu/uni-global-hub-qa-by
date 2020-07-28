@@ -18,3 +18,9 @@ users:
     Password: automation123
     Country: Australia
     Company: AECC Global Sydney
+unsw_militech_top_database:
+  adapter: mysql2
+  host: 35.201.22.233
+  database: unsw_militech_top
+  username: unsw_militech
+  password: RNxMPsNxeSTRbGmy

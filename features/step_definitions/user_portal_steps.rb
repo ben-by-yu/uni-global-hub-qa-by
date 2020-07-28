@@ -44,3 +44,7 @@ end
 Then(/^I log out from user portal$/) do
   find('a', :text => 'Log out').click
 end
+
+And(/^I verify item is added to section "([^"]*)"$/) do |section_name|
+  user_portal_page.verify_added_item section_name
+end

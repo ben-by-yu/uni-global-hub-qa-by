@@ -67,14 +67,20 @@ class UserPortalPage < GenericPage
     find("div[class='content'] > div[class='right'] > div[class='icons'] > i").click
   end
 
-  def verify_preview_download
+  def verify_preview_download(item_title = nil)
+    item_title ||= first("div[class='content'] > div[class='left'] > h2").text
     # Verify preview function
-    first("div[class='el-image'] > img").click
+    sleep 3
+
+    # first("div[class='el-image'] > img").click
+    find(:xpath, "//h2[contains(., '#{item_title}')]/../../div[contains(@class, 'right')]/div/div[contains(@class, 'el-image')]").click
     first("div[class='el-image'] > div > span[class='el-image-viewer__btn el-image-viewer__close'] > i[class='el-icon-circle-close']").click
 
     # Verify pdf download
-    attachment_url = first("div[class='content'] > div[class='right'] > div[class='icons'] > a")[:href]
-    first("div[class='content'] > div[class='right'] > div[class='icons'] > a").click
+    # attachment_url = first("div[class='content'] > div[class='right'] > div[class='icons'] > a")[:href]
+    attachment_url = find(:xpath, "//h2[contains(., '#{item_title}')]/../../div[contains(@class, 'right')]/div/a")[:href]
+    # first("div[class='content'] > div[class='right'] > div[class='icons'] > a").click
+    find(:xpath, "//h2[contains(., '#{item_title}')]/../../div[contains(@class, 'right')]/div/a").click
     if attachment_url.match? /.*pdf?/
       page.driver.browser.switch_to.window(page.driver.browser.window_handles.last)
       raise 'PDF document cannot be opened properly!' unless attachment_url == URI.parse(page.current_url).to_s
@@ -82,6 +88,11 @@ class UserPortalPage < GenericPage
 
     page.driver.browser.close()
     page.driver.browser.switch_to.window(page.driver.browser.window_handles.first)
+  end
+
+  def verify_added_item(section_name)
+    navigate_to(section_name, 'content')
+    verify_preview_download(execution_data.item_title)
   end
 
 end

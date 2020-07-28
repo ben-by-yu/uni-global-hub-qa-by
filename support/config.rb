@@ -36,15 +36,7 @@ class Config
 
   def self.load_env_config
     env_config = Config.new(File.join(__dir__, '..', 'config', 'env', "#{test_env}.yml")).load
-    # client_config = Config.new(File.join(__dir__, '..', 'config', 'client', "#{env_config[:client]}.yml")).load
-    # merged_config = env_config.merge(user_config).merge(client_config)
-    # merged_config
     env_config
   end
 
-  # def self.load_workflow_config
-  #   workflow_config = Config.new(File.join(__dir__, '..', 'config', 'workflows', "#{env_config[:client]}_workflows.yml")).load
-  #   merged_config = env_config.merge(workflow_config)
-  #   merged_config
-  # end
 end

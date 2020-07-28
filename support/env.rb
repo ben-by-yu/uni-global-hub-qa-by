@@ -1,6 +1,3 @@
-#Setup DB NLS language settings to fetch Extended Ascii Characters
-# To find the DB Char set in Oracle DB:
-# select value from nls_database_parameters where parameter='NLS_CHARACTERSET';
 ENV['NLS_LANG'] ||= 'AMERICAN_AMERICA.AL32UTF8'
 
 require 'capybara'
@@ -34,6 +31,10 @@ module CustomWorld
 
   def user_info(role)
     env_config[:users][role].first
+  end
+
+  def db_query
+    @db_query ||= DBQueries.new
   end
 
   def execution_data

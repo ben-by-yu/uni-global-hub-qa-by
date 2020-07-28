@@ -1,5 +1,6 @@
 require_relative '../helpers/retry_helper'
 require_relative '../models/banner'
+require_relative '../models/db_query'
 require 'open-uri'
 
 class GenericPage
